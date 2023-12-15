@@ -1,6 +1,6 @@
 // Pets
 /datum/area_spawn/markus
-	target_areas = list(/area/station/cargo/sorting,  /area/station/cargo/storage, /area/station/cargo/office, /area/station/command/heads_quarters/qm)
+	target_areas = list(/area/station/cargo/sorting, /area/station/cargo/storage, /area/station/cargo/office, /area/station/command/heads_quarters/qm)
 	desired_atom = /mob/living/basic/pet/dog/markus
 
 /datum/area_spawn/bumbles
@@ -21,7 +21,7 @@
 	desired_atom = /obj/structure/closet/secure_closet/security_medic
 
 /datum/area_spawn/blueshield_locker
-	target_areas = list(/area/station/command/heads_quarters/captain, /area/station/command/bridge)
+	target_areas = list(/area/station/command/heads_quarters/captain, /area/station/command/bridge, /area/station/command/corporate_dock, /area/station/command/meeting_room, /area/station/command/gateway)
 	desired_atom = /obj/structure/closet/secure_closet/blueshield
 	mode = AREA_SPAWN_MODE_HUG_WALL
 
@@ -45,6 +45,11 @@
 	desired_atom = /obj/machinery/vending/dorms
 	mode = AREA_SPAWN_MODE_HUG_WALL
 
+/datum/area_spawn/gbp_machine
+	target_areas = list(/area/station/cargo/lobby, /area/station/cargo/boutique, /area/station/construction/storage_wing, /area/station/hallway/primary/port /*bubberstation edit for kilo*/) // lmao imagine map standardization
+	desired_atom = /obj/machinery/gbp_redemption
+	mode = AREA_SPAWN_MODE_HUG_WALL
+
 // Wall mounts. Use sparingly as walls are prime real estate
 /datum/area_spawn/posialert_robotics
 	target_areas = list(/area/station/science/robotics, /area/station/science/robotics/lab)
@@ -56,11 +61,18 @@
 	desired_atom = /obj/machinery/posialert
 	mode = AREA_SPAWN_MODE_MOUNT_WALL
 
-// Job spawners
-/datum/area_spawn/secmed_landmark
-	target_areas = list(/area/station/security/medical, /area/station/security/brig)
-	desired_atom = /obj/effect/landmark/start/security_medic
+/datum/area_spawn/prison_cryo_console
+	// Keep to one area so it's in the same area as the pods, which is required.
+	target_areas = list(/area/station/security/prison)
+	desired_atom = /obj/machinery/computer/cryopod
+	mode = AREA_SPAWN_MODE_MOUNT_WALL
 
+/datum/area_spawn/prison_cryopod
+	target_areas = list(/area/station/security/prison)
+	desired_atom = /obj/machinery/cryopod/prison
+	mode = AREA_SPAWN_MODE_MOUNT_WALL
+
+// Job spawners
 /datum/area_spawn/barber_landmark
 	target_areas = list(/area/station/service/salon, /area/station/hallway/secondary/service)
 	desired_atom = /obj/effect/landmark/start/barber
@@ -88,3 +100,12 @@
 /datum/area_spawn/customs_agent_landmark
 	desired_atom = /obj/effect/landmark/start/customs_agent
 	target_areas = list(/area/station/security/checkpoint/supply, /area/station/cargo/storage)
+
+/datum/area_spawn_over/prison_curtains
+	desired_atom = /obj/structure/curtain/cloth/prison
+	over_atoms = list(/obj/structure/window/reinforced/fulltile, /obj/machinery/door/airlock/security/glass, /obj/machinery/door/airlock/public/glass)
+	target_areas = list(/area/station/security/prison/safe)
+
+/datum/area_spawn/corrections_officer_landmark
+	desired_atom = /obj/effect/landmark/start/corrections_officer
+	target_areas = list(/area/station/security/brig, /area/station/security/prison/)

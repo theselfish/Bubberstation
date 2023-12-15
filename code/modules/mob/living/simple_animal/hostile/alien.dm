@@ -28,9 +28,11 @@
 	status_flags = CANPUSH
 	minbodytemp = 0
 	unsuitable_heat_damage = 20
-	see_in_dark = NIGHTVISION_FOV_RANGE
-	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	unique_name = 1
+	// Going for a dark purple here
+	lighting_cutoff_red = 30
+	lighting_cutoff_green = 15
+	lighting_cutoff_blue = 50
+	unique_name = TRUE
 	gold_core_spawnable = NO_SPAWN
 	death_sound = 'sound/voice/hiss6.ogg'
 	death_message = "lets out a waning guttural screech, green blood bubbling from its maw..."
@@ -51,7 +53,7 @@
 		return
 	plant_cooldown--
 	if(AIStatus == AI_IDLE)
-		if(!plants_off && prob(10) && plant_cooldown<=0)
+		if(!plants_off && prob(10) && plant_cooldown <= 0)
 			plant_cooldown = initial(plant_cooldown)
 			SpreadPlants()
 
@@ -89,7 +91,7 @@
 	projectiletype = /obj/projectile/neurotoxin/damaging
 	projectilesound = 'sound/weapons/pierce.ogg'
 	status_flags = 0
-	unique_name = 0
+	unique_name = FALSE
 	var/sterile = 1
 	var/plants_off = 0
 	var/egg_cooldown = 30
@@ -101,10 +103,10 @@
 	egg_cooldown--
 	plant_cooldown--
 	if(AIStatus == AI_IDLE)
-		if(!plants_off && prob(10) && plant_cooldown<=0)
+		if(!plants_off && prob(10) && plant_cooldown <= 0)
 			plant_cooldown = initial(plant_cooldown)
 			SpreadPlants()
-		if(!sterile && prob(10) && egg_cooldown<=0)
+		if(!sterile && prob(10) && egg_cooldown <= 0)
 			egg_cooldown = initial(egg_cooldown)
 			LayEggs()
 
@@ -158,7 +160,7 @@
 	. = ..()
 	AddElement(/datum/element/cleaning)
 
-/mob/living/simple_animal/hostile/alien/maid/AttackingTarget()
+/mob/living/simple_animal/hostile/alien/maid/AttackingTarget(atom/attacked_target)
 	if(ismovable(target))
 		target.wash(CLEAN_SCRUB)
 		if(istype(target, /obj/effect/decal/cleanable))

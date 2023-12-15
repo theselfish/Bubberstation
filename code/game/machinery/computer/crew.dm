@@ -1,7 +1,7 @@
 /// How often the sensor data is updated
 #define SENSORS_UPDATE_PERIOD (10 SECONDS) //How often the sensor data updates.
 /// The job sorting ID associated with otherwise unknown jobs
-#define UNKNOWN_JOB_ID 81
+#define UNKNOWN_JOB_ID 802 //BUBBERSTATION CHANGE: NEW CREW MONITOR SORTING.
 
 /obj/machinery/computer/crew
 	name = "crew monitoring console"
@@ -45,6 +45,7 @@
 		"name",
 		"job",
 		"is_robot", //SKYRAT EDIT ADDITION - Displaying robotic species Icon
+		"is_dnr", //BUBBERSTATION EDIT ADDITION - Displays DNR status
 		"life_status",
 		"suffocation",
 		"toxin",
@@ -108,7 +109,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_SECURITY_OFFICER_SCIENCE = 15,
 		JOB_SECURITY_OFFICER_SUPPLY = 16,
 		*/
-		JOB_SECURITY_MEDIC = 13, // SKYRAT EDIT ADDITION
+		JOB_SECURITY_MEDIC = 13, // BUBBER EDIT ADDITION
 		JOB_CORRECTIONS_OFFICER = 14, // SKYRAT EDIT ADDITION
 		JOB_DETECTIVE = 15,
 		// 20-29: Medbay
@@ -117,8 +118,9 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_VIROLOGIST = 22,
 		JOB_MEDICAL_DOCTOR = 23,
 		JOB_PARAMEDIC = 24,
-		JOB_ORDERLY = 25, // SKYRAT EDIT ADDITION
-		JOB_PSYCHOLOGIST = 26, // SKYRAT EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
+		JOB_CORONER = 25,
+		JOB_ORDERLY = 26, // SKYRAT EDIT ADDITION
+		JOB_PSYCHOLOGIST = 27, // SKYRAT EDIT - ORIGINAL: JOB_PSYCHOLOGIST = 71,
 		// 30-39: Science
 		JOB_RESEARCH_DIRECTOR = 30,
 		JOB_SCIENTIST = 31,
@@ -134,7 +136,9 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_QUARTERMASTER = 50,
 		JOB_SHAFT_MINER = 51,
 		JOB_CARGO_TECHNICIAN = 52,
-		JOB_CUSTOMS_AGENT = 53, // SKYRAT EDIT ADDITION
+		JOB_BITRUNNER = 53,
+		JOB_CUSTOMS_AGENT = 54, // SKYRAT EDIT ADDITION
+		JOB_BLACKSMITH = 54,	// Bubber Addition!
 		// 60+: Civilian/other
 		JOB_HEAD_OF_PERSONNEL = 60,
 		JOB_BARTENDER = 61,
@@ -234,7 +238,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			continue
 
 		// Check if their uniform is in a compatible mode.
-		if((uniform.has_sensor <= NO_SENSORS) || !uniform.sensor_mode)
+		if((uniform.has_sensor == NO_SENSORS) || !uniform.sensor_mode) //BUBBERSTATION CHANGE: 'uniform.has_sensor <= NO_SENSORS' TO 'uniform.has_sensor == NO_SENSORS'
 			stack_trace("Human without active suit sensors is in suit_sensors_list: [tracked_human] ([tracked_human.type]) ([uniform.type])")
 			continue
 
@@ -256,14 +260,36 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			if (jobs[trim_assignment] != null)
 				entry["ijob"] = jobs[trim_assignment]
 
+		//BUBBERSTATION CHANGE: EMP SENSORS
+		if(uniform.has_sensor == BROKEN_SENSORS)
+			entry["is_robot"] = rand(0,1)
+			entry["life_status"] = rand(0,1)
+			entry["area"] = prob(80) ? pick_list(ION_FILE, "ionarea") : pick("COWGIRL","REVERSE COWGIRL","DOGGYSTYLE","MISSIONARY","69")
+			entry["oxydam"] = rand(0,1000)
+			entry["toxdam"] = rand(0,1000)
+			entry["burndam"] =rand(0,1000)
+			entry["brutedam"] = rand(0,1000)
+			entry["health"] = -50
+			entry["can_track"] = tracked_living_mob.can_track()
+			results[++results.len] = entry
+			continue
+		//BUBBERSTATION CHANGE END
+
 		// SKYRAT EDIT BEGIN: Checking for robotic race
 		if (issynthetic(tracked_human))
 			entry["is_robot"] = TRUE
 		// SKYRAT EDIT END
 
-		// Binary living/dead status
+		// BUBBERSTATION EDIT BEGIN: Add DNR status
+		// If sensors are above living tracking, set DNR state
 		if (sensor_mode >= SENSOR_LIVING)
-			entry["life_status"] = (tracked_living_mob.stat != DEAD)
+			entry["is_dnr"] = HAS_TRAIT(tracked_living_mob, TRAIT_DNR)
+		// BUBBERSTATION EDIT END
+
+		// Binary living/dead status
+		// Current status
+		if (sensor_mode >= SENSOR_LIVING)
+			entry["life_status"] = tracked_living_mob.stat
 
 		// Damage
 		if (sensor_mode >= SENSOR_VITALS)
@@ -290,7 +316,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 	return results
 
-/datum/crewmonitor/ui_act(action,params)
+/datum/crewmonitor/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
@@ -299,7 +325,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			var/mob/living/silicon/ai/AI = usr
 			if(!istype(AI))
 				return
-			AI.ai_camera_track(params["name"])
+			AI.ai_tracking_tool.set_tracked_mob(AI, params["name"])
 
 #undef SENSORS_UPDATE_PERIOD
 #undef UNKNOWN_JOB_ID

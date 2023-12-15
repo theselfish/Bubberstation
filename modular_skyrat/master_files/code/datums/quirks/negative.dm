@@ -5,7 +5,7 @@
 	gain_text = span_danger("You suddenly can't raise a hand to hurt others!")
 	lose_text = span_notice("You think you can defend yourself again.")
 	medical_record_text = "Patient is nerve stapled and is unable to harm others."
-	icon = "hand-peace"
+	icon = FA_ICON_FACE_ANGRY
 	forced_items = list(/obj/item/clothing/glasses/nerve_staple = list(ITEM_SLOT_EYES))
 	/// The nerve staple attached to the quirk
 	var/obj/item/clothing/glasses/nerve_staple/staple
@@ -27,6 +27,7 @@
 	name = "Brain Degeneration"
 	desc = "You have a lethal condition in your brain that is slowly destroying it. Better bring some mannitol!"
 	medical_record_text = "Patient has a lethal condition in their brain that is slowly causing brain death."
+	icon = FA_ICON_BRAIN
 
 // Override of Brain Tumor quirk for robotic/synthetic species with posibrains.
 // Does not appear in TGUI or the character preferences window.
@@ -36,7 +37,7 @@
 	gain_text = "<span class='danger'>You feel glitchy.</span>"
 	lose_text = "<span class='notice'>You no longer feel glitchy.</span>"
 	medical_record_text = "Patient has a cascading anomaly in their brain that is slowly causing brain death."
-	icon = "bp_synth_brain"
+	icon = FA_ICON_BRAZILIAN_REAL_SIGN
 	mail_goodies = list(/obj/item/storage/pill_bottle/liquid_solder/braintumor)
 	hidden_quirk = TRUE
 
@@ -71,7 +72,7 @@
 	name = "Hydraulic Leak"
 	desc = "Your body's hydraulic fluids are leaking through their seals."
 	medical_record_text = "Patient requires regular treatment for hydraulic fluid loss."
-	icon = "bd_synth_tint"
+	icon = FA_ICON_GLASS_WATER_DROPLET
 	mail_goodies = list(/obj/item/reagent_containers/blood/oil)
 	// min_blood = BLOOD_VOLUME_BAD - 25; // TODO: Uncomment after TG PR #70563
 	hidden_quirk = TRUE
@@ -85,3 +86,15 @@
 	var/datum/quirk/blooddeficiency/synth/bd_synth = new
 	qdel(src)
 	return bd_synth.add_to_holder(new_holder, quirk_transfer)
+
+/datum/quirk/gifted
+	name = "Experienced" // Bubberstation Edit
+	desc = "You have a wider, crushing experience working onboard the station." // Bubberstation Edit
+	icon = FA_ICON_DOVE
+	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_HIDE_FROM_SCAN
+	value = -6
+	mob_trait = TRAIT_GIFTED
+	gain_text = span_danger("Your skills feel like you're just a little bit more flexible.") // Bubberstation Edit
+	lose_text = span_notice("Your skills feel a little less flexible.") // Bubberstation Edit
+	medical_record_text = "Patient has a history of uncanny experience" // Bubberstation Edit
+	hardcore_value = 0

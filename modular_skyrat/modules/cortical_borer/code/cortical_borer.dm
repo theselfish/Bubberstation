@@ -10,6 +10,9 @@ GLOBAL_VAR_INIT(successful_blood_chem, 0)
 
 GLOBAL_LIST_EMPTY(cortical_borers)
 
+/// This divisor controls how fast body temperature changes to match the environment
+#define BODYTEMP_DIVISOR 16
+
 //we need a way of buffing leg speed
 /datum/movespeed_modifier/focus_speed
 	multiplicative_slowdown = -0.4
@@ -78,6 +81,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	health = 25
 	//they need to be able to pass tables and mobs
 	pass_flags = PASSTABLE | PASSMOB
+	density = FALSE
 	//they are below mobs, or below tables
 	layer = BELOW_MOB_LAYER
 	//corticals are tiny
@@ -202,7 +206,17 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 
 /mob/living/basic/cortical_borer/Initialize(mapload)
 	. = ..()
+	AddComponent( \
+		/datum/component/squashable, \
+		squash_chance = 25, \
+		squash_damage = 25, \
+		squash_flags = SQUASHED_DONT_SQUASH_IN_CONTENTS, \
+	)
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT) //they need to be able to move around
+
+	var/matrix/borer_matrix = matrix(transform)
+	borer_matrix.Scale(0.5, 0.5)
+	transform = borer_matrix
 
 	name = "[initial(name)] ([generation]-[rand(100,999)])" //so their gen and a random. ex 1-288 is first gen named 288, 4-483 if fourth gen named 483
 
@@ -218,7 +232,7 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	reagent_holder = new /obj/item/reagent_containers/borer(src)
 
 	for(var/action_type in known_abilities)
-		var/datum/action/attack_action = new action_type()
+		var/datum/action/attack_action = new action_type(src)
 		attack_action.Grant(src)
 
 	if(mind)
@@ -262,9 +276,9 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	. += "OBJECTIVES:"
 	. += "1) [GLOB.objective_egg_borer_number] borers producing [GLOB.objective_egg_egg_number] eggs: [GLOB.successful_egg_number]/[GLOB.objective_egg_borer_number]"
 	. += "2) [GLOB.objective_willing_hosts] willing hosts: [length(GLOB.willing_hosts)]/[GLOB.objective_willing_hosts]"
-	. += "3) [GLOB.objective_blood_borer] borers learning [GLOB.objective_blood_chem] from the blood: [GLOB.successful_blood_chem]/[GLOB.objective_blood_borer]"
+	. += "3) [GLOB.objective_blood_borer] borers learning [GLOB.objective_blood_chem] chemicals from the blood: [GLOB.successful_blood_chem]/[GLOB.objective_blood_borer]"
 
-/mob/living/basic/cortical_borer/Life(delta_time, times_fired)
+/mob/living/basic/cortical_borer/Life(seconds_per_tick, times_fired)
 	. = ..()
 	//can only do stuff when we are inside a LIVING human
 	if(!inside_human() || human_host?.stat == DEAD)
@@ -330,11 +344,30 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 		return TRUE
 	return FALSE
 
+/// Base mob environment handler for body temperature, overridden to take into consideration being inside a host
+/mob/living/basic/cortical_borer/handle_environment(datum/gas_mixture/environment, seconds_per_tick, times_fired)
+	var/loc_temp
+	if(human_host)
+		loc_temp = human_host.coretemperature // set the local temp to that of the host's core temp
+	else
+		loc_temp = get_temperature(environment)
+	var/temp_delta = loc_temp - bodytemperature
+
+	if(!human_host && ismovable(loc))
+		var/atom/movable/occupied_space = loc
+		temp_delta *= (1 - occupied_space.contents_thermal_insulation)
+
+	if(temp_delta < 0) // it is cold here
+		if(!on_fire) // do not reduce body temp when on fire
+			adjust_bodytemperature(max(max(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_COOLING_MAX) * seconds_per_tick, temp_delta))
+	else // this is a hot place
+		adjust_bodytemperature(min(min(temp_delta / BODYTEMP_DIVISOR, BODYTEMP_HEATING_MAX) * seconds_per_tick, temp_delta))
+
 //leave the host, forced or not
 /mob/living/basic/cortical_borer/proc/leave_host()
 	if(!human_host)
 		return
-	var/obj/item/organ/internal/borer_body/borer_organ = locate() in human_host.internal_organs
+	var/obj/item/organ/internal/borer_body/borer_organ = locate() in human_host.organs
 	if(borer_organ)
 		borer_organ.Remove(human_host)
 	var/turf/human_turf = get_turf(human_host)
@@ -436,3 +469,5 @@ GLOBAL_LIST_EMPTY(cortical_borers)
 	chemical_storage = 250
 	chem_regen_per_level = 1.5
 	chem_storage_per_level = 25
+
+#undef BODYTEMP_DIVISOR

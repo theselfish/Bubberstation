@@ -1,19 +1,3 @@
-//Bartender Winter coat, with the ability to hold shakers/beakers/rags in its suit storage slot
-/obj/item/clothing/suit/hooded/wintercoat/bartender
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	name = "bartender's winter coat"
-	desc = "A heavy jacket made from wool originally stolen from the chef's goat. This new design is made to fit the classic suit-and-tie aesthetic, but without the hypothermia."
-	icon_state = "coatbar"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals/emergency_oxygen, /obj/item/tank/internals/plasmaman, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/reagent_containers/cup/glass/shaker, /obj/item/reagent_containers/cup/glass/flask, /obj/item/reagent_containers/cup/rag)
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/bartender
-
-/obj/item/clothing/head/hooded/winterhood/bartender
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/hats.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/head.dmi'
-	icon_state = "winterhood_bar"
-
 //Base Jacket - same stats as /obj/item/clothing/suit/jacket, just toggleable and serving as the base for all the departmental jackets and flannels
 /obj/item/clothing/suit/toggle/jacket
 	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
@@ -69,16 +53,6 @@
 	desc = "A comfortable jacket in a neutral black"
 	icon_state = "off_dep_jacket"
 
-/obj/item/clothing/suit/gorka	//THIS WILL BE MOVED IN THE NEXT PR ADDING PROPER GORKAS (not cargo related so not in this PR), BUT FOR NOW ITS HERE FOR THE SUBTYPE'S FILE LINKS
-	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suit.dmi'
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/suit/gorka/supply	//Put here for sorting purposes, considering the cargo gorkas are in the utility file too. The base Gorka and Jacket (to be added later) will most likely be elsewhere
-	name = "supply gorka jacket"
-	desc = "A snug jacket to wear over your gorka. This one matches with supply's colors."
-	icon_state = "gorka_jacket_supply"
-
 /obj/item/clothing/suit/toggle/jacket/supply/head
 	name = "quartermaster's jacket"
 	desc = "Even if people refuse to recognize you as a head, they can recognize you as a badass."
@@ -88,14 +62,19 @@
 	name = "security jacket"
 	desc = "A comfortable jacket in security blue. Probably against uniform regulations."
 	icon_state = "sec_dep_jacket"
-	armor_type = /datum/armor/jacket_sec
+	armor_type = /datum/armor/sec_dep_jacket
 
-/datum/armor/jacket_sec
-	melee = 25
-	bullet = 15
+/obj/item/clothing/suit/toggle/jacket/sec/Initialize(mapload)
+	. = ..()
+	allowed = GLOB.security_vest_allowed
+
+/datum/armor/sec_dep_jacket
+	melee = 30
+	bullet = 20
 	laser = 30
-	energy = 10
+	energy = 40
 	bomb = 25
+	fire = 30
 	acid = 45
 
 /obj/item/clothing/suit/toggle/jacket/sec/old	//Oldsec (Red)
@@ -123,3 +102,11 @@
 /obj/item/clothing/suit/toggle/jacket/flannel/brown
 	name = "brown flannel jacket"
 	icon_state = "flannel_brown"
+
+/obj/item/clothing/suit/toggle/jacket/flannel/gags
+	name = "flannel shirt"
+	icon_state = "flannelgags"
+	greyscale_config = /datum/greyscale_config/flannelgags
+	greyscale_config_worn = /datum/greyscale_config/flannelgags/worn
+	greyscale_colors = "#a61e1f"
+	flags_1 = IS_PLAYER_COLORABLE_1

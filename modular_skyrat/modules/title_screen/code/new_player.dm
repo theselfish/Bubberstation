@@ -27,12 +27,12 @@
 		ViewManifest()
 		return
 
-	if(href_list["toggle_antag"])
+/* 	if(href_list["toggle_antag"]) // BUBBER EDIT
 		play_lobby_button_sound()
 		var/datum/preferences/preferences = client.prefs
 		preferences.write_preference(GLOB.preference_entries[/datum/preference/toggle/be_antag], !preferences.read_preference(/datum/preference/toggle/be_antag))
 		client << output(preferences.read_preference(/datum/preference/toggle/be_antag), "title_browser:toggle_antag")
-		return
+		return */
 
 	if(href_list["character_setup"])
 		play_lobby_button_sound()
@@ -52,9 +52,10 @@
 
 	if(href_list["toggle_ready"])
 		play_lobby_button_sound()
-		if(!is_admin(client) && length_char(client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < FLAVOR_TEXT_CHAR_REQUIREMENT)
-			to_chat(src, span_notice("You need at least [FLAVOR_TEXT_CHAR_REQUIREMENT] characters of flavor text to ready up for the round. You have [length_char(client.prefs.read_preference(/datum/preference/text/flavor_text))] characters."))
-			return
+		if(CONFIG_GET(flag/min_flavor_text))
+			if(!is_admin(client) && length_char(client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < CONFIG_GET(number/flavor_text_character_requirement))
+				to_chat(src, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to ready up for the round. You have [length_char(client.prefs.read_preference(/datum/preference/text/flavor_text))] characters."))
+				return
 
 		ready = !ready
 		client << output(ready, "title_browser:toggle_ready")

@@ -18,6 +18,8 @@
 	var/item_path = /obj/item/fireaxe
 	/// Overlay we get when the item is inside us.
 	var/item_overlay = "axe"
+	/// Whether we should populate our own contents on Initialize()
+	var/populate_contents = TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet, 32)
 
@@ -31,8 +33,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet, 32)
 
 /obj/structure/fireaxecabinet/Initialize(mapload)
 	. = ..()
-	held_item = new item_path(src)
+	if(populate_contents)
+		held_item = new item_path(src)
 	update_appearance()
+	find_and_hang_on_wall()
 
 /obj/structure/fireaxecabinet/Destroy()
 	if(held_item)
@@ -115,7 +119,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet, 32)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(held_item && loc)
 			held_item.forceMove(loc)
-		new /obj/item/stack/sheet/iron(loc, 2)
+		new /obj/item/wallframe/fireaxecabinet(loc)
 	qdel(src)
 
 /obj/structure/fireaxecabinet/blob_act(obj/structure/blob/B)
@@ -153,10 +157,24 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet, 32)
 	. = ..()
 	if(held_item)
 		. += item_overlay
+	var/hp_percent = (atom_integrity/max_integrity) * 100
+
 	if(open)
-		. += "glass_raised"
+		if(broken)
+			. += "glass4_raised"
+			return
+
+		switch(hp_percent)
+			if(-INFINITY to 40)
+				. += "glass3_raised"
+			if(40 to 60)
+				. += "glass2_raised"
+			if(60 to 80)
+				. += "glass1_raised"
+			if(80 to INFINITY)
+				. += "glass_raised"
 		return
-	var/hp_percent = atom_integrity/max_integrity * 100
+
 	if(broken)
 		. += "glass4"
 	else
@@ -190,6 +208,19 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet, 32)
 		update_appearance()
 		return
 
+/obj/structure/fireaxecabinet/empty
+	populate_contents = FALSE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet/empty, 32)
+
+/obj/item/wallframe/fireaxecabinet
+	name = "fire axe cabinet"
+	desc = "Home to a window's greatest nightmare. Apply to wall to use."
+	icon = 'icons/obj/wallmounts.dmi'
+	icon_state = "fireaxe"
+	result_path = /obj/structure/fireaxecabinet/empty
+	pixel_shift = 32
+
 /obj/structure/fireaxecabinet/mechremoval
 	name = "mech removal tool cabinet"
 	desc = "There is a small label that reads \"For Emergency use only\" along with details for safe use of the tool. As if."
@@ -198,3 +229,21 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet, 32)
 	item_overlay = "crowbar"
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet/mechremoval, 32)
+
+/obj/structure/fireaxecabinet/mechremoval/deconstruct(disassembled = TRUE)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(held_item && loc)
+			held_item.forceMove(loc)
+		new /obj/item/wallframe/fireaxecabinet/mechremoval(loc)
+	qdel(src)
+
+/obj/structure/fireaxecabinet/mechremoval/empty
+	populate_contents = FALSE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/fireaxecabinet/mechremoval/empty, 32)
+
+/obj/item/wallframe/fireaxecabinet/mechremoval
+	name = "mech removal tool cabinet"
+	desc = "Home to a very special crowbar. Apply to wall to use."
+	icon_state = "mechremoval"
+	result_path = /obj/structure/fireaxecabinet/mechremoval/empty

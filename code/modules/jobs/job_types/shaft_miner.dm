@@ -26,7 +26,7 @@
 
 	family_heirlooms = list(/obj/item/pickaxe/mini, /obj/item/shovel)
 	rpg_title = "Adventurer"
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS
 
 
 /datum/outfit/job/miner
@@ -52,6 +52,7 @@
 	backpack = /obj/item/storage/backpack/explorer
 	satchel = /obj/item/storage/backpack/satchel/explorer
 	duffelbag = /obj/item/storage/backpack/duffelbag/explorer
+	messenger = /obj/item/storage/backpack/messenger/explorer
 
 	box = /obj/item/storage/box/survival/mining
 	chameleon_extras = /obj/item/gun/energy/recharge/kinetic_accelerator
@@ -72,14 +73,6 @@
 	glasses = /obj/item/clothing/glasses/meson
 	mask = /obj/item/clothing/mask/gas/explorer
 	internals_slot = ITEM_SLOT_SUITSTORE
-
-/datum/outfit/job/miner/equipped/post_equip(mob/living/carbon/human/miner, visualsOnly = FALSE)
-	..()
-	if(visualsOnly)
-		return
-	if(istype(miner.wear_suit, /obj/item/clothing/suit/hooded))
-		var/obj/item/clothing/suit/hooded/explorer_suit = miner.wear_suit
-		explorer_suit.ToggleHood()
 
 /datum/outfit/job/miner/equipped/mod
 	name = "Shaft Miner (Equipment + MODsuit)"

@@ -5,19 +5,11 @@
 
 <!-- Describe The Pull Request. Please be sure every change is documented or this can delay review and even discourage maintainers from merging your PR! -->
 
-## How This Contributes To The Skyrat Roleplay Experience
+<!-- Please make sure to actually test your PRs. If you have not tested your PR mention it. -->
 
-<!-- Please add a short description of why you think these changes would benefit the game and the roleplay atmosphere of the server. If you can't justify it in words, it might not be worth adding. -->
+## Why It's Good For The Game
 
-## Proof of Testing
-
-<!-- Include any screenshots/videos/debugging steps of the code functioning successfully, between the </summary> and </details> code blocks. -->
-<!-- To our mappers and spriters: Posting screenshots of content INSIDE EDITORS (aseprite, PDN, SDMM, ect) is NOT valid proof of testing. Please make sure that you COMPILE the game and provide PROOF you tested your edits. -->
-
-<details>
-<summary>Screenshots/Videos</summary>
-  
-</details>
+<!-- Argue for the merits of your changes and how they benefit the game, especially if they are controversial and/or far reaching. If you can't actually explain WHY what you are doing will improve the game, then it probably isn't good for the game in the first place. -->
 
 ## Changelog
 
@@ -30,10 +22,8 @@ del: Removed old things
 qol: made something easier to use
 balance: rebalanced something
 fix: fixed a few things
-soundadd: added a new sound thingy
-sounddel: removed an old sound thingy
-imageadd: added some icons and images
-imagedel: deleted some icons and images
+sound: added/modified/removed audio or sound effects
+image: added/modified/removed some icons or images
 spellcheck: fixed a few typos
 code: changed some code
 refactor: refactored some code
@@ -44,3 +34,5 @@ server: something server ops should know
 
 <!-- Both :cl:'s are required for the changelog to work! You can put your name to the right of the first :cl: if you want to overwrite your GitHub username as author ingame. -->
 <!-- You can use multiple of the same prefix (they're only used for the icon ingame) and delete the unneeded ones. Despite some of the tags, changelogs should generally represent how a player might be affected by the changes rather than a summary of the PR's contents. -->
+
+<!-- By opening a pull request. You have read and understood the repository rules located on the main README.md on this project. -->

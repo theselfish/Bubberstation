@@ -1,3 +1,5 @@
+/* BUBBERSTATION CHANGE START: MOVED BETTER CODE TO MODULAR
+
 /obj/structure/trash_pile
 	name = "trash pile"
 	desc = "A heap of garbage, but maybe there's something interesting inside?"
@@ -32,6 +34,7 @@
 		"trashbag",
 		"brokecomp",
 	)
+
 
 /obj/structure/trash_pile/proc/do_search(mob/user)
 	if(contents.len) // There's something hidden
@@ -102,7 +105,7 @@
 	if(HAS_TRAIT(user, TRAIT_RESTRAINED)) // hiding takes twice as long when restrained.
 		adjusted_dive_time *= 2
 
-	if(do_mob(user, user, adjusted_dive_time))
+	if(do_after(user, adjusted_dive_time, user))
 		if(src.loc) // Checking if structure has been destroyed
 			if(do_dive(user))
 				user.forceMove(src)
@@ -116,7 +119,7 @@
 	if(!user.combat_mode)
 		if(can_hide_item(hidden_item))
 			balloon_alert(user, "hiding item...")
-			if(do_mob(user, user, hide_item_time))
+			if(do_after(user, hide_item_time, user))
 				if(src.loc)
 					if(user.transferItemToLoc(hidden_item, src))
 						balloon_alert(user, "item hidden")
@@ -138,3 +141,5 @@
 
 /obj/structure/trash_pile/relaymove(mob/user)
 	container_resist_act(user)
+
+BUBBERSTATION CHANGE END */

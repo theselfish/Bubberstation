@@ -26,7 +26,11 @@
 	message_admins("A pulse rifle prize has been created at [ADMIN_VERBOSEJMP(T)]")
 	log_game("A pulse rifle prize has been created at [AREACOORD(T)]")
 
-	notify_ghosts("Someone won a pulse rifle as a prize!", source = src, action = NOTIFY_ORBIT, header = "Pulse rifle prize")
+	notify_ghosts(
+		"Someone won a pulse rifle as a prize!",
+		source = src,
+		header = "Pulse rifle prize",
+	)
 
 /obj/item/gun/energy/pulse/loyalpin
 	pin = /obj/item/firing_pin/implant/mindshield
@@ -47,6 +51,9 @@
 		light_overlay = "flight", \
 		overlay_x = 18, \
 		overlay_y = 12)
+
+/obj/item/gun/energy/pulse/carbine/lethal
+	ammo_type = list(/obj/item/ammo_casing/energy/laser, /obj/item/ammo_casing/energy/laser/pulse, /obj/item/ammo_casing/energy/electrode)
 
 /obj/item/gun/energy/pulse/carbine/loyalpin
 	pin = /obj/item/firing_pin/implant/mindshield

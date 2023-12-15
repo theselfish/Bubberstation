@@ -14,6 +14,10 @@
 	name = "head of security's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the head of security."
 
+/obj/item/storage/bag/garment/warden
+	name = "warden's garment bag"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the warden."
+
 /obj/item/storage/bag/garment/hop
 	name = "head of personnel's garment bag"
 	desc = "A bag for storing extra clothes and shoes. This one belongs to the head of personnel."
@@ -54,7 +58,7 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/captain(src)
 	new /obj/item/clothing/suit/jacket/capjacket(src)
 	new /obj/item/clothing/glasses/sunglasses/gar/giga(src)
-	new /obj/item/clothing/gloves/color/captain(src)
+	new /obj/item/clothing/gloves/captain(src)
 	new /obj/item/clothing/head/costume/crown/fancy(src)
 	new /obj/item/clothing/head/hats/caphat(src)
 	new /obj/item/clothing/head/hats/caphat/parade(src)
@@ -70,8 +74,6 @@
 	new /obj/item/clothing/head/hats/hopcap(src)
 	new /obj/item/clothing/neck/cloak/hop(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/clothing/suit/hooded/wintercoat/hop(src)
-	new /obj/item/clothing/suit/hooded/wintercoat/hopformal(src)
 
 /obj/item/storage/bag/garment/hos/PopulateContents()
 	new /obj/item/clothing/under/rank/security/head_of_security/skirt(src)
@@ -86,9 +88,28 @@
 	new /obj/item/clothing/suit/armor/vest/leather(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/gars/giga(src)
-	new /obj/item/clothing/head/hats/hos(src)
+	new /obj/item/clothing/head/hats/hos/cap(src)
 	new /obj/item/clothing/mask/gas/sechailer/swat(src)
 	new /obj/item/clothing/neck/cloak/hos(src)
+//BUBBER ADDITION BEGIN
+	new /obj/item/clothing/neck/cloak/hos/redsec(src)
+	new /obj/item/clothing/under/rank/security/head_of_security/redsec(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/redsec(src)
+	new /obj/item/clothing/shoes/jackboots/sec/redsec(src)
+//BUBBER ADDITION END
+
+/obj/item/storage/bag/garment/warden/PopulateContents()
+	new /obj/item/clothing/suit/armor/vest/warden(src)
+	new /obj/item/clothing/head/hats/warden(src)
+	new /obj/item/clothing/head/hats/warden/drill(src)
+	new /obj/item/clothing/head/beret/sec/navywarden(src)
+	new /obj/item/clothing/suit/armor/vest/warden/alt(src)
+	new /obj/item/clothing/under/rank/security/warden/formal(src)
+	new /obj/item/clothing/suit/jacket/warden/blue(src) //SKYRAT ADDITION - FORMAL COAT
+	new /obj/item/clothing/under/rank/security/warden/skirt(src)
+	new /obj/item/clothing/gloves/krav_maga/sec(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
+	new /obj/item/clothing/mask/gas/sechailer(src)
 
 /obj/item/storage/bag/garment/research_director/PopulateContents()
 	new /obj/item/clothing/under/rank/rnd/research_director(src)
@@ -110,7 +131,7 @@
 	new /obj/item/clothing/under/rank/medical/chief_medical_officer/scrubs(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/medical/cmo(src)
 	new /obj/item/clothing/suit/toggle/labcoat/cmo(src)
-	new /obj/item/clothing/gloves/color/latex/nitrile(src)
+	new /obj/item/clothing/gloves/latex/nitrile(src)
 	new /obj/item/clothing/head/beret/medical/cmo(src)
 	new /obj/item/clothing/head/utility/surgerycap/cmo(src)
 	new /obj/item/clothing/neck/cloak/cmo(src)
@@ -121,9 +142,9 @@
 	new /obj/item/clothing/under/rank/engineering/chief_engineer/skirt(src)
 	new /obj/item/clothing/suit/hooded/wintercoat/engineering/ce(src)
 	new /obj/item/clothing/glasses/meson/engine(src)
-	new /obj/item/clothing/gloves/color/chief_engineer(src)
+	new /obj/item/clothing/gloves/chief_engineer(src)
 	new /obj/item/clothing/head/utility/hardhat/white(src)
-	new /obj/item/clothing/head/utility/hardhat/weldhat/white(src)
+	new /obj/item/clothing/head/utility/hardhat/welding/white(src)
 	new /obj/item/clothing/neck/cloak/ce(src)
 	new /obj/item/clothing/shoes/sneakers/brown(src)
 
@@ -133,6 +154,7 @@
 	new /obj/item/clothing/suit/hooded/wintercoat/cargo/qm(src)
 	new /obj/item/clothing/suit/utility/fire/firefighter(src)
 	new /obj/item/clothing/gloves/fingerless(src)
+	new /obj/item/clothing/suit/jacket/quartermaster(src)
 	new /obj/item/clothing/head/soft(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/neck/cloak/qm(src)

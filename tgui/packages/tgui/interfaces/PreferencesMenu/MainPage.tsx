@@ -1,8 +1,8 @@
 import { classes } from 'common/react';
 import { sendAct, useBackend, useLocalState } from '../../backend';
-import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks, Dropdown } from '../../components'; // SKYRAT EDIT CHANGE
-import { createSetPreference, PreferencesMenuData, RandomSetting } from './data';
-import { CharacterPreview } from './CharacterPreview';
+import { Autofocus, Box, Button, Flex, LabeledList, Popper, Stack, TrackOutsideClicks, Dropdown } from '../../components'; // SKYRAT EDIT CHANGE - Adds Dropdown
+import { createSetPreference, PreferencesMenuData, RandomSetting, ServerData } from './data';
+import { CharacterPreview } from '../common/CharacterPreview';
 import { RandomizationButton } from './RandomizationButton';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 import { MultiNameInput, NameInput } from './names';
@@ -201,23 +201,25 @@ const GenderButton = (
       popperContent={
         genderMenuOpen && (
           <Stack backgroundColor="white" ml={0.5} p={0.3}>
-            {[Gender.Male, Gender.Female, Gender.Other].map((gender) => {
-              return (
-                <Stack.Item key={gender}>
-                  <Button
-                    selected={gender === props.gender}
-                    onClick={() => {
-                      props.handleSetGender(gender);
-                      setGenderMenuOpen(false);
-                    }}
-                    fontSize="22px"
-                    icon={GENDERS[gender].icon}
-                    tooltip={GENDERS[gender].text}
-                    tooltipPosition="top"
-                  />
-                </Stack.Item>
-              );
-            })}
+            {[Gender.Male, Gender.Female, Gender.Other, Gender.Other2].map(
+              (gender) => {
+                return (
+                  <Stack.Item key={gender}>
+                    <Button
+                      selected={gender === props.gender}
+                      onClick={() => {
+                        props.handleSetGender(gender);
+                        setGenderMenuOpen(false);
+                      }}
+                      fontSize="22px"
+                      icon={GENDERS[gender].icon}
+                      tooltip={GENDERS[gender].text}
+                      tooltipPosition="top"
+                    />
+                  </Stack.Item>
+                );
+              }
+            )}
           </Stack>
         )
       }>
@@ -356,10 +358,11 @@ const sortPreferences = sortBy<[string, unknown]>(([featureId, _]) => {
   return feature?.name;
 });
 
-const PreferenceList = (props: {
+export const PreferenceList = (props: {
   act: typeof sendAct;
   preferences: Record<string, unknown>;
   randomizations: Record<string, RandomSetting>;
+  maxHeight: string;
 }) => {
   return (
     <Stack.Item
@@ -370,7 +373,8 @@ const PreferenceList = (props: {
         padding: '4px',
       }}
       overflowX="hidden"
-      overflowY="scroll">
+      overflowY="auto"
+      maxHeight={props.maxHeight}>
       <LabeledList>
         {sortPreferences(Object.entries(props.preferences)).map(
           ([featureId, value]) => {
@@ -389,6 +393,7 @@ const PreferenceList = (props: {
               <LabeledList.Item
                 key={featureId}
                 label={feature.name}
+                tooltip={feature.description}
                 verticalAlign="middle">
                 <Stack fill>
                   {randomSetting && (
@@ -415,6 +420,37 @@ const PreferenceList = (props: {
         )}
       </LabeledList>
     </Stack.Item>
+  );
+};
+
+export const getRandomization = (
+  preferences: Record<string, unknown>,
+  serverData: ServerData | undefined,
+  randomBodyEnabled: boolean,
+  context
+): Record<string, RandomSetting> => {
+  if (!serverData) {
+    return {};
+  }
+
+  const { data } = useBackend<PreferencesMenuData>(context);
+
+  return Object.fromEntries(
+    filterMap(Object.keys(preferences), (preferenceKey) => {
+      if (serverData.random.randomizable.indexOf(preferenceKey) === -1) {
+        return undefined;
+      }
+
+      if (!randomBodyEnabled) {
+        return undefined;
+      }
+
+      return [
+        preferenceKey,
+        data.character_preferences.randomization[preferenceKey] ||
+          RandomSetting.Disabled,
+      ];
+    })
   );
 };
 
@@ -464,36 +500,11 @@ export const MainPage = (
           data.character_preferences.non_contextual.random_body !==
             RandomSetting.Disabled || randomToggleEnabled;
 
-        const getRandomization = (
-          preferences: Record<string, unknown>
-        ): Record<string, RandomSetting> => {
-          if (!serverData) {
-            return {};
-          }
-
-          return Object.fromEntries(
-            filterMap(Object.keys(preferences), (preferenceKey) => {
-              if (
-                serverData.random.randomizable.indexOf(preferenceKey) === -1
-              ) {
-                return undefined;
-              }
-
-              if (!randomBodyEnabled) {
-                return undefined;
-              }
-
-              return [
-                preferenceKey,
-                data.character_preferences.randomization[preferenceKey] ||
-                  RandomSetting.Disabled,
-              ];
-            })
-          );
-        };
-
         const randomizationOfMainFeatures = getRandomization(
-          Object.fromEntries(mainFeatures)
+          Object.fromEntries(mainFeatures),
+          serverData,
+          randomBodyEnabled,
+          context
         );
 
         const nonContextualPreferences = {
@@ -556,18 +567,20 @@ export const MainPage = (
                     />
                   </Stack.Item>
 
-                  <Dropdown
+                  <Stack.Item
                     // SKYRAT EDIT ADDITION
-                    width="100%"
-                    position="relative"
-                    selected={data.preview_selection}
-                    options={data.preview_options}
-                    onSelected={(value) =>
-                      act('update_preview', {
-                        updated_preview: value,
-                      })
-                    }
-                  />
+                    position="relative">
+                    <Dropdown
+                      width="100%"
+                      selected={data.preview_selection}
+                      options={data.preview_options}
+                      onSelected={(value) =>
+                        act('update_preview', {
+                          updated_preview: value,
+                        })
+                      }
+                    />
+                  </Stack.Item>
 
                   <Stack.Item position="relative">
                     <NameInput
@@ -626,14 +639,26 @@ export const MainPage = (
                 <Stack vertical fill>
                   <PreferenceList
                     act={act}
-                    randomizations={getRandomization(contextualPreferences)}
+                    randomizations={getRandomization(
+                      contextualPreferences,
+                      serverData,
+                      randomBodyEnabled,
+                      context
+                    )}
                     preferences={contextualPreferences}
+                    maxHeight="auto"
                   />
 
                   <PreferenceList
                     act={act}
-                    randomizations={getRandomization(nonContextualPreferences)}
+                    randomizations={getRandomization(
+                      nonContextualPreferences,
+                      serverData,
+                      randomBodyEnabled,
+                      context
+                    )}
                     preferences={nonContextualPreferences}
+                    maxHeight="auto"
                   />
                 </Stack>
               </Stack.Item>

@@ -91,7 +91,7 @@
 	to_chat(attacker, span_danger("You leg sweep [defender]!"))
 	playsound(get_turf(attacker), 'sound/effects/hit_kick.ogg', 50, TRUE, -1)
 	defender.apply_damage(5, BRUTE, BODY_ZONE_CHEST)
-	defender.Knockdown(60)
+	defender.Knockdown(6 SECONDS)
 	log_combat(attacker, defender, "leg sweeped")
 	return TRUE
 
@@ -115,12 +115,6 @@
 	defender.adjust_silence_up_to(20 SECONDS, 20 SECONDS)
 	log_combat(attacker, defender, "neck chopped")
 	return TRUE
-
-/datum/martial_art/krav_maga/grab_act(mob/living/attacker, mob/living/defender)
-	if(check_streak(attacker, defender))
-		return TRUE
-	log_combat(attacker, defender, "grabbed (Krav Maga)")
-	..()
 
 /datum/martial_art/krav_maga/harm_act(mob/living/attacker, mob/living/defender)
 	if(check_streak(attacker, defender))

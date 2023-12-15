@@ -11,18 +11,17 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space)
 "eo" = (
-/mob/living/simple_animal/hostile/construct/artificer/hostile{
+/mob/living/basic/construct/artificer/hostile{
 	dir = 1
 	},
 /turf/open/floor/stone,
 /area/ruin/space)
 "gv" = (
-/mob/living/simple_animal/hostile/construct/artificer/hostile,
+/mob/living/basic/construct/artificer/hostile,
 /turf/open/space/basic,
 /area/ruin/space)
 "hi" = (
 /obj/item/clothing/head/helmet/knight{
-	armor = list("melee" = 40, "bullet" = 10, "laser" = 10, "energy" = 10, "bomb" = 0, "bio" = 0, "fire" = 70, "acid" = 50);
 	desc = "A metal helmet, worn down by time. Runes line the inner plating.";
 	name = "Fool's Helm";
 	pixel_x = -10;
@@ -38,7 +37,7 @@
 /turf/open/space/basic,
 /area/ruin/space)
 "jy" = (
-/mob/living/simple_animal/hostile/construct/artificer/hostile{
+/mob/living/basic/construct/artificer/hostile{
 	dir = 4
 	},
 /turf/open/misc/asteroid/basalt/wasteland,
@@ -93,7 +92,7 @@
 /turf/open/floor/stone,
 /area/ruin/space)
 "tj" = (
-/mob/living/simple_animal/hostile/construct/artificer/hostile{
+/mob/living/basic/construct/artificer/hostile{
 	dir = 4
 	},
 /turf/open/space/basic,
@@ -189,7 +188,7 @@
 /area/ruin/space)
 "Iz" = (
 /obj/structure/table/wood/fancy,
-/obj/item/storage/book/bible,
+/obj/item/book/bible,
 /turf/open/floor/stone,
 /area/ruin/space)
 "IB" = (
@@ -277,7 +276,7 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space)
 "XM" = (
-/mob/living/simple_animal/hostile/construct/artificer/hostile{
+/mob/living/basic/construct/artificer/hostile{
 	dir = 8
 	},
 /turf/open/space/basic,
