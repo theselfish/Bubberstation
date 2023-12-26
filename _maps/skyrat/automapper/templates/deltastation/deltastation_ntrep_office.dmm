@@ -172,7 +172,7 @@
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain/private/nt_rep)
 "D" = (
-/obj/structure/closet/secure_closet/nanotrasen_consultant/station,
+/obj/structure/closet/secure_closet/nanotrasen_consultant,
 /obj/item/storage/briefcase,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
