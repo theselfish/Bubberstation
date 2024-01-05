@@ -49,7 +49,7 @@
 
 		//Security
 		JOB_WARDEN = 201,
-		JOB_CORRECTIONS_OFFICER = 202,
+		JOB_Internal_affairs_officer = 202,
 		JOB_SECURITY_MEDIC = 203,
 		JOB_DETECTIVE = 204,
 		JOB_SECURITY_OFFICER = 205,

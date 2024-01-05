@@ -72,10 +72,10 @@
 
 // Security areas
 // CO Office
-/area/station/security/corrections_officer
-	name = "Corrections Officer Lounge"
+/area/station/security/Internal_affairs_officer
+	name = "internal affairs officer Lounge"
 	icon = 'modular_skyrat/modules/mapping/icons/areas/areas_station.dmi'
-	icon_state = "corrections_officer"
+	icon_state = "Internal_affairs_officer"
 
 // Department power stations
 /area/station/cargo/power_station

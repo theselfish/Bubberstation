@@ -6137,7 +6137,7 @@
 	},
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "bPZ" = (
 /turf/closed/wall,
 /area/station/service/cafeteria)
@@ -10293,7 +10293,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "ddH" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/large,
@@ -14473,7 +14473,7 @@
 	dir = 8
 	},
 /obj/machinery/newscaster/directional/east,
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /turf/open/floor/iron/dark,
 /area/station/security/range)
 "eie" = (
@@ -19258,7 +19258,7 @@
 /area/station/engineering/supermatter/room)
 "fCo" = (
 /obj/machinery/status_display/ai/directional/north,
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/effect/turf_decal/tile/dark_red/diagonal_centre,
 /obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
@@ -19311,7 +19311,7 @@
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/freezerchamber)
 "fDd" = (
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/effect/turf_decal/tile/dark_red/diagonal_centre,
 /obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /obj/machinery/light/cold/directional/west,
@@ -19351,7 +19351,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_large,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "fDA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -24611,7 +24611,7 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /turf/open/floor/glass/reinforced,
 /area/station/security/office)
 "hdk" = (
@@ -29021,7 +29021,7 @@
 /obj/structure/chair/sofa/bench{
 	dir = 8
 	},
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /turf/open/floor/glass/reinforced,
 /area/station/security/execution/transfer)
 "irB" = (
@@ -40331,7 +40331,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "lti" = (
 /turf/open/floor/iron/small,
 /area/station/hallway/secondary/exit/departure_lounge)
@@ -42924,7 +42924,7 @@
 	},
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "mcu" = (
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
@@ -44037,7 +44037,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "mtF" = (
 /obj/effect/turf_decal/trimline/yellow/filled/warning{
 	dir = 8
@@ -48365,7 +48365,7 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
 	},
@@ -48373,7 +48373,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "nFI" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/turf_decal/tile/purple{
@@ -51008,7 +51008,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/gateway)
 "opr" = (
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/effect/turf_decal/tile/dark_red/diagonal_centre,
 /obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /turf/open/floor/iron/dark/diagonal,
@@ -53809,7 +53809,7 @@
 	dir = 5
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "pcx" = (
 /obj/structure/sign/warning/cold_temp,
 /turf/closed/wall,
@@ -55895,10 +55895,10 @@
 "pFg" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/newscaster/directional/east,
-/obj/structure/closet/secure_closet/corrections_officer,
+/obj/structure/closet/secure_closet/INTERNAL_AFFAIRS_OFFICER,
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "pFi" = (
 /obj/item/card/emagfake,
 /turf/open/floor/plating/foam{
@@ -61739,7 +61739,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "riB" = (
 /obj/effect/turf_decal/stripes/white/line{
 	color = "#52B4E9";
@@ -62296,7 +62296,7 @@
 	},
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "rpS" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -63960,7 +63960,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "rQm" = (
 /obj/machinery/light/floor,
 /turf/open/floor/engine/n2o,
@@ -70085,7 +70085,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "twb" = (
 /obj/machinery/air_sensor/ordnance_freezer_chamber,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2,
@@ -70392,7 +70392,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/purple/filled/end,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "tzs" = (
 /obj/effect/turf_decal/siding/wood/end{
 	dir = 4
@@ -79360,7 +79360,7 @@
 	dir = 6
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "vXf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/start/hangover,
@@ -80571,7 +80571,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "woY" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/landmark/start/hangover,
@@ -86173,7 +86173,7 @@
 /area/station/cargo/storage)
 "xTY" = (
 /turf/closed/wall/r_wall,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "xUa" = (
 /obj/machinery/light/small/directional/west,
 /obj/structure/cable,
@@ -87280,7 +87280,7 @@
 	name = "Prison Blast Door"
 	},
 /turf/open/floor/plating,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "yly" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,

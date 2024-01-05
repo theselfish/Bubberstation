@@ -10,7 +10,7 @@
 							JOB_DETECTIVE,
 							JOB_HEAD_OF_SECURITY,
 							JOB_CAPTAIN,
-							JOB_CORRECTIONS_OFFICER,
+							JOB_Internal_affairs_officer,
 							JOB_NT_REP,
 							JOB_BLUESHIELD,
 							JOB_ORDERLY,

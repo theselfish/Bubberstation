@@ -509,7 +509,7 @@
 /area/station/service/theater)
 "afr" = (
 /obj/effect/turf_decal/delivery,
-/obj/structure/closet/secure_closet/corrections_officer,
+/obj/structure/closet/secure_closet/INTERNAL_AFFAIRS_OFFICER,
 /obj/machinery/button/flasher{
 	id = "IsolationFlash2";
 	pixel_x = 10;
@@ -530,7 +530,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "afx" = (
 /obj/structure/table,
 /obj/item/stack/sheet/glass{
@@ -1390,12 +1390,12 @@
 	dir = 1;
 	name = "Command Station"
 	},
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "anW" = (
 /obj/structure/cable,
 /turf/open/floor/plating,
@@ -1602,7 +1602,7 @@
 	pixel_y = 6
 	},
 /turf/closed/wall/r_wall,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "aqf" = (
 /obj/machinery/door/airlock/external{
 	name = "Atmospherics External Airlock";
@@ -1774,7 +1774,7 @@
 	pixel_y = -4
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "arQ" = (
 /obj/structure/table/wood,
 /obj/item/radio/intercom{
@@ -8322,7 +8322,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "bEW" = (
 /obj/structure/sign/poster/contraband/fun_police/directional/north,
 /obj/machinery/camera/directional/north{
@@ -9363,7 +9363,7 @@
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/purple/anticorner/contrasted,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "bPn" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
@@ -14859,7 +14859,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/firecloset,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "cMJ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
@@ -23667,7 +23667,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "eyk" = (
 /obj/structure/closet/firecloset,
 /obj/effect/decal/cleanable/dirt{
@@ -41042,7 +41042,7 @@
 	pixel_y = 38
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "hQc" = (
 /obj/machinery/door/airlock/external{
 	space_dir = 8
@@ -46484,7 +46484,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "iUK" = (
 /obj/effect/turf_decal/weather/sand{
 	dir = 1
@@ -47401,7 +47401,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "jcw" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/north,
@@ -68602,7 +68602,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "net" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 4;
@@ -70290,7 +70290,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/purple/half/contrasted,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "nwS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/carpet,
@@ -71112,7 +71112,7 @@
 	},
 /obj/structure/cable,
 /turf/open/floor/iron/stairs,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "nEA" = (
 /obj/structure/frame/computer{
 	dir = 1
@@ -72536,7 +72536,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "nSu" = (
 /obj/structure/trash_pile,
 /obj/effect/decal/cleanable/dirt{
@@ -73703,7 +73703,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "odO" = (
 /obj/structure/railing{
 	dir = 8
@@ -75266,7 +75266,7 @@
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "oqU" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -76568,7 +76568,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "oDH" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -78068,7 +78068,7 @@
 /area/station/cargo/bitrunning/den)
 "oSX" = (
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "oTa" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -79048,11 +79048,11 @@
 /obj/structure/chair/office{
 	dir = 8
 	},
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/purple/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "pdp" = (
 /obj/structure/closet/secure_closet/medical1,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -80963,7 +80963,7 @@
 "pwD" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "pwF" = (
 /obj/effect/turf_decal/stripes{
 	dir = 4
@@ -85448,7 +85448,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "qpl" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
@@ -87000,7 +87000,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "qCN" = (
 /obj/structure/chair/stool/directional/west,
 /obj/item/clothing/head/costume/ushanka,
@@ -88668,7 +88668,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 6
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "qTG" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -107596,7 +107596,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "uxy" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -107935,7 +107935,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "uAN" = (
 /obj/machinery/door/airlock/hatch{
 	name = "MiniSat Antechamber"
@@ -110013,7 +110013,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "uVx" = (
 /obj/effect/decal/cleanable/dirt{
 	icon_state = "dirt-flat-1"
@@ -110495,7 +110495,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 10
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "vaN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -111365,7 +111365,7 @@
 /area/station/maintenance/port/fore)
 "vkg" = (
 /obj/structure/chair,
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/structure/cable,
 /obj/machinery/camera/directional/north{
 	c_tag = " Prison - Perma office";
@@ -111375,7 +111375,7 @@
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "vkm" = (
 /obj/machinery/light/directional/west,
 /obj/machinery/button/door{
@@ -112756,7 +112756,7 @@
 /area/station/security/office)
 "vwF" = (
 /turf/closed/wall/r_wall,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "vwN" = (
 /turf/open/floor/iron/dark/side{
 	dir = 4
@@ -115633,7 +115633,7 @@
 "vYF" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "vYS" = (
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
@@ -123767,7 +123767,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark,
-/area/station/security/corrections_officer)
+/area/station/security/INTERNAL_AFFAIRS_OFFICER)
 "xAg" = (
 /obj/structure/fence{
 	dir = 8

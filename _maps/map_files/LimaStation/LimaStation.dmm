@@ -10890,7 +10890,7 @@
 /turf/open/floor/grass,
 /area/station/hallway/secondary/exit/departure_lounge)
 "exL" = (
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "exN" = (
@@ -34764,7 +34764,7 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /turf/open/floor/iron/dark/smooth_edge,
 /area/station/security/brig/upper)
 "npa" = (
@@ -41079,7 +41079,7 @@
 /area/station/maintenance/department/crew_quarters/dorms)
 "pGC" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /turf/open/floor/iron/dark,
 /area/station/security/office)
 "pGI" = (
@@ -52386,7 +52386,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /turf/open/floor/iron/dark,
 /area/station/security/range)
 "tLR" = (

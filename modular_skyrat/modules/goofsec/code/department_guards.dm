@@ -742,7 +742,7 @@
 
 /datum/supply_pack/security/baton_prison
 	name = "Prison Baton Crate"
-	desc = "Contains an extra baton for Corrections Officers. \
+	desc = "Contains an extra baton for internal affairs officers. \
 		Just in case you hated the idea of a normal baton in their hands."
 	cost = CARGO_CRATE_VALUE * 2
 	access_view = ACCESS_SECURITY

@@ -58,7 +58,7 @@ const BASEICONS = {
   Barber: 'scissors',
   Blueshield: 'shield-dog',
   Bouncer: 'shield-heart',
-  'Corrections Officer': 'hands-bound',
+  'internal affairs officer': 'hands-bound',
   'Customs Agent': 'shield-heart',
   'Engineering Guard': 'shield-heart',
   'Nanotrasen Consultant': 'clipboard-check',

@@ -93,9 +93,9 @@
 		"Service Guard",
 	)
 
-/datum/job/corrections_officer
+/datum/job/Internal_affairs_officer
 	alt_titles = list(
-		"Corrections Officer",
+		"internal affairs officer",
 		"Brig Officer",
 		"Prison Guard",
 	)

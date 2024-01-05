@@ -1,26 +1,27 @@
-/datum/job/Internal_affairs_officer
-	title = JOB_Internal_affairs_officer
-	description = "Guard the permabrig, stand around looking imposing, get fired for abusing the prisoners"
+/datum/job/INTERNAL_AFFAIRS_OFFICER
+	title = JOB_INTERNAL_AFFAIRS_OFFICER
+	description = "Police Security. Beat the Warden for beaying the Prisoners. Cry because no one snitches."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list("The Warden and Head of Security")
+	department_head = list("Space Law and the Nanotrasen Rep")
 	faction = FACTION_STATION
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = SUPERVISOR_HOS
+	total_positions = 3
+	spawn_positions = 3
+	supervisors = "Central Command and the Nanotrasen Consultant"
 	minimal_player_age = 7
-	exp_requirements = 150
+	exp_requirements = 2400
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
-	config_tag = "Internal_affairs_officer"
+	config_tag = "INTERNAL_AFFAIRS_OFFICER"
 
 	paycheck = PAYCHECK_CREW
-	paycheck_department = ACCOUNT_SEC
+	paycheck_department = ACCOUNT_CMD
 
-	outfit = /datum/outfit/job/Internal_affairs_officer
+	outfit = /datum/outfit/job/INTERNAL_AFFAIRS_OFFICER
 	plasmaman_outfit = /datum/outfit/plasmaman/security
-	display_order = JOB_DISPLAY_ORDER_Internal_affairs_officer
+	display_order = JOB_DISPLAY_ORDER_INTERNAL_AFFAIRS_OFFICER
 	liver_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM)
 	departments_list = list(
+		/datum/job_department/central_command,
 		/datum/job_department/security,
 	)
 
@@ -38,11 +39,11 @@
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 
 // OUTFIT
-/datum/outfit/job/Internal_affairs_officer
+/datum/outfit/job/INTERNAL_AFFAIRS_OFFICER
 	name = "internal affairs officer"
-	jobtype = /datum/job/Internal_affairs_officer
-	uniform = /obj/item/clothing/under/rank/security/Internal_affairs_officer/sweater
-	suit = /obj/item/clothing/suit/toggle/jacket/Internal_affairs_officer
+	jobtype = /datum/job/INTERNAL_AFFAIRS_OFFICER
+	uniform = /obj/item/clothing/under/rank/security/INTERNAL_AFFAIRS_OFFICER/sweater
+	suit = /obj/item/clothing/suit/toggle/jacket/INTERNAL_AFFAIRS_OFFICER
 	shoes = /obj/item/clothing/shoes/laceup
 	ears = /obj/item/radio/headset/headset_sec
 	glasses = /obj/item/clothing/glasses/sunglasses
@@ -56,7 +57,7 @@
 	box = /obj/item/storage/box/survival/security
 	belt = /obj/item/modular_computer/pda/security
 
-	id_trim = /datum/id_trim/job/Internal_affairs_officer
+	id_trim = /datum/id_trim/job/INTERNAL_AFFAIRS_OFFICER
 
 
 

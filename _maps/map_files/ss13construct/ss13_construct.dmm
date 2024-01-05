@@ -422,7 +422,7 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/awaymission/secret/powered/construct)
 "po" = (
-/obj/effect/landmark/start/corrections_officer,
+/obj/effect/landmark/start/INTERNAL_AFFAIRS_OFFICER,
 /obj/effect/light_emitter/interlink,
 /turf/open/floor/iron/small,
 /area/awaymission/secret/powered/construct)

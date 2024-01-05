@@ -1,5 +1,5 @@
 //SR Security
-#define SECHUD_CORRECTIONS_OFFICER "hudcorrectionsofficer"
+#define SECHUD_Internal_affairs_officer "hudcorrectionsofficer"
 //SR Departmental Guards
 #define SECHUD_ENGINEERING_GUARD "hudengineeringguard"
 #define SECHUD_ORDERLY "hudorderly"
