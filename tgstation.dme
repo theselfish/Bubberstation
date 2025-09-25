@@ -9770,7 +9770,6 @@
 #include "modular_zubbers\code\modules\vehicles\mecha\ripley.dm"
 #include "modular_zubbers\code\modules\vehicles\mecha\equipment\weapons.dm"
 #include "modular_zubbers\code\modules\vending\armadyne.dm"
-#include "modular_zubbers\code\modules\vending\clothmate.dm"
 #include "modular_zubbers\code\modules\vending\cola.dm"
 #include "modular_zubbers\code\modules\vending\comdrobe.dm"
 #include "modular_zubbers\code\modules\vending\games.dm"
